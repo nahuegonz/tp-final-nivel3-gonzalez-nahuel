@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Comercio.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-primary border-opacity-50">
+            <div class="container-fluid">
+                <asp:Image ImageUrl="https://media.istockphoto.com/id/1184670036/es/vector/icono-de-la-l%C3%ADnea-del-carro-de-la-compra-compra-r%C3%A1pida-logotipo-vectorial.jpg?s=612x612&w=0&k=20&c=0ie1nYSFDBfnEjVykJxmKLGhXjOWUxPVTSOzfxyJQe0=" runat="server" class="d-inline-block align-text-top rounded me-2" Height="50px" href="~/" />
+                <a class="navbar-brand" href="Default.aspx">Todo Compras</a>
+                <div class="input-group justify-content-center">
+                    <asp:TextBox runat="server" class="form-control" type="search" placeholder="Buscar" aria-label="Search" />
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="Favoritos.aspx">Favoritos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="MiPerfil.aspx">Mi&nbsp;Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="Productos.aspx">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary" id="btnIngresar" runat="server" href="Ingresar.aspx">Ingresar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-success" runat="server" href="Registrarse.aspx">Registrarse</a>
+                        </li>
+                        <li>
+                            <asp:Image ImageUrl="https://i.pinimg.com/236x/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg" class="me-2" runat="server" Width="50px" Style="border-radius: 50%;" />
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+
+
+        <div class="container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="align-content-end mt-auto">
+                <hr class="mb-4" />
+                <div class="text-center mb-2">
+
+                    <p>Todo Compras  &copy; - <%: DateTime.Now.Year %></p>
+                </div>
+            </footer>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>

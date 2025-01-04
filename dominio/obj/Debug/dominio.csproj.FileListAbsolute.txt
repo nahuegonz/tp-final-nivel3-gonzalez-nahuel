@@ -1,0 +1,12 @@
+C:\Users\Nahue\Desktop\TPFinalNivel2_Gonzalez\dominio\bin\Debug\dominio.dll
+C:\Users\Nahue\Desktop\TPFinalNivel2_Gonzalez\dominio\bin\Debug\dominio.pdb
+C:\Users\Nahue\Desktop\TPFinalNivel2_Gonzalez\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\Nahue\Desktop\TPFinalNivel2_Gonzalez\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\Nahue\Desktop\TPFinalNivel2_Gonzalez\dominio\obj\Debug\dominio.dll
+C:\Users\Nahue\Desktop\TPFinalNivel2_Gonzalez\dominio\obj\Debug\dominio.pdb
+C:\Users\Nahue\source\repos\E-CommerceWeb\dominio\bin\Debug\dominio.dll
+C:\Users\Nahue\source\repos\E-CommerceWeb\dominio\bin\Debug\dominio.pdb
+C:\Users\Nahue\source\repos\E-CommerceWeb\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\Nahue\source\repos\E-CommerceWeb\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\Nahue\source\repos\E-CommerceWeb\dominio\obj\Debug\dominio.dll
+C:\Users\Nahue\source\repos\E-CommerceWeb\dominio\obj\Debug\dominio.pdb
