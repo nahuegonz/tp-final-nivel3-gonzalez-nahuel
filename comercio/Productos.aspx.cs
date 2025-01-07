@@ -31,12 +31,6 @@ namespace Comercio
             dgvProductos.DataBind();
         }
 
-        //protected void dgvProductos_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    string id = dgvProductos.SelectedDataKey.Value.ToString();
-        //    Response.Redirect("Modificar.aspx?id=" + id);
-
-        //}
 
         protected void dgvProductos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -46,7 +40,7 @@ namespace Comercio
                 //Response.Redirect("Modificar.aspx?id=" + id);
 
                 int index = Convert.ToInt32(e.CommandArgument);
-                
+
                 GridViewRow selectedRow = dgvProductos.Rows[index];
                 TableCell identification = selectedRow.Cells[0];
                 string id = identification.Text;
@@ -57,8 +51,14 @@ namespace Comercio
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 NegocioArticulos negocio = new NegocioArticulos();
-                negocio.eliminar(index);
-                
+
+                GridViewRow selectedRow = dgvProductos.Rows[index];
+                TableCell identification = selectedRow.Cells[0];
+                int id = int.Parse(identification.Text);
+
+                negocio.eliminar(id);
+
+                Response.Redirect("Productos.aspx");
             }
         }
     }

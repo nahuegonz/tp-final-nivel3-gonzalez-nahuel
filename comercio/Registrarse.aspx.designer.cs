@@ -51,13 +51,13 @@ namespace Comercio
         protected global::System.Web.UI.WebControls.TextBox txtApellido;
 
         /// <summary>
-        /// txtImagen control.
+        /// txtImagenPerfil control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile txtImagen;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile txtImagenPerfil;
 
         /// <summary>
         /// imgNuevoPerfil control.

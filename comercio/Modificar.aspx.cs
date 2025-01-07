@@ -44,19 +44,19 @@ namespace Comercio
                     txtDescripcionProducto.Text = seleccionado.Descripcion;
                     txtCodigoProducto.Text = seleccionado.Codigo;
                     txtPrecioProducto.Text = seleccionado.Precio.ToString();
+                    txtImagenP.Text = seleccionado.UrlImagen;
 
-                    if (!string.IsNullOrEmpty(seleccionado.UrlImagen))
-                        imgNuevoProducto.ImageUrl = "~/Images/Productos/" + seleccionado.UrlImagen;
+                    if (Seguridad.EsImagenValida(seleccionado.UrlImagen))
+                        imgNuevoProducto.ImageUrl = seleccionado.UrlImagen;
+                    else
+                        imgNuevoProducto.ImageUrl = "https://img.freepik.com/vector-premium/no-hay-foto-disponible-icono-vector-simbolo-imagen-predeterminado-imagen-proximamente-sitio-web-o-aplicacion-movil_87543-10615.jpg";
+
+                    //if (!string.IsNullOrEmpty(seleccionado.UrlImagen))
+                    //    imgNuevoProducto.ImageUrl = "~/Images/Productos/" + seleccionado.UrlImagen;
 
 
                     ddlCategoria.SelectedValue = seleccionado.IdCategoria.ToString();
                     ddlMarca.SelectedValue = seleccionado.IdMarca.ToString();
-
-
-
-                    //txtImagenProducto.Text = seleccionado.UrlImagen;
-
-
 
                 }
 
@@ -84,6 +84,8 @@ namespace Comercio
                 nuevo.Precio = int.Parse(txtPrecioProducto.Text);
                 nuevo.IdMarca = int.Parse(ddlMarca.SelectedValue);
                 nuevo.IdCategoria = int.Parse(ddlCategoria.SelectedValue);
+                nuevo.UrlImagen = txtImagenP.Text;
+                
 
                 nuevo.Marca = new Marca();
                 nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
@@ -120,8 +122,13 @@ namespace Comercio
             }
         }
 
-        protected void btnImagenProducto_Click(object sender, EventArgs e)
+        protected void txtImagenP_TextChanged(object sender, EventArgs e)
         {
+
+            if (Seguridad.EsImagenValida(txtImagenP.Text))
+                imgNuevoProducto.ImageUrl = txtImagenP.Text;
+            else
+                imgNuevoProducto.ImageUrl = "https://img.freepik.com/vector-premium/no-hay-foto-disponible-icono-vector-simbolo-imagen-predeterminado-imagen-proximamente-sitio-web-o-aplicacion-movil_87543-10615.jpg";
 
         }
     }

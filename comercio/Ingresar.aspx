@@ -9,11 +9,13 @@
             <form class="px-4 py-3">
                 <div class="d-flex row mb-3 mt-3">
                     <label for="lblEmail" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="txtEmail" placeholder="email@ejemplo.com">
+                    <%--<input type="email" class="form-control" id="txtEmail" placeholder="email@ejemplo.com">--%>
+                    <asp:TextBox runat="server" type="email" class="form-control" id="txtEmail" placeholder="email@ejemplo.com" />
                 </div>
                 <div class="d-flex row mb-3">
                     <label for="lblPass" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="txtPass" placeholder="Contraseña">
+                    <%--<input type="password" class="form-control" id="txtPass" placeholder="Contraseña">--%>
+                    <asp:TextBox runat="server" type="password" class="form-control" id="txtPass" placeholder="Contraseña" />
                 </div>
                 <div class="mb-3">
                     <div class="form-check">
@@ -23,7 +25,8 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary w-25 m-2">Ingresar</button>
+                <%--<button type="submit" class="btn btn-primary w-25 m-2">Ingresar</button>--%>
+                <asp:Button runat="server" type="submit" class="btn btn-primary w-25 m-2" Text="Ingresar" id="btnIngresarCuenta" OnClick="btnIngresarCuenta_Click" />
             </form>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item mt-2 mb-3 text-center" href="Registrarse.aspx">¿Eres nuevo? Regístrate aqui.</a>

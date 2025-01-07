@@ -19,6 +19,7 @@ namespace dominio
         public int IdMarca { get; set; }
         public int IdCategoria { get; set; }
         public string UrlImagen { get; set; }
+        public string UrlImagenValidada { get; set; }
         public decimal Precio { get; set; }
         public Marca Marca { get; set; }
         [DisplayName("Categoría")]

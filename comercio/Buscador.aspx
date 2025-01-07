@@ -79,9 +79,11 @@
 
             <asp:Repeater runat="server" ID="repArticulos">
                 <ItemTemplate>
+
+
                     <div class="col">
                         <div class="card">
-                            <img src="<%#Eval("UrlImagen") %>" id="imgArticulo" alt="Imagen <%#Eval("Nombre") %>" class="object-fit-contain rounded mw-100 p-3" style="height: 300px; width: 500px; object-fit:contain"  />
+                            <img src="<%#Eval("UrlImagenValidada")%>" ID="imgArticulo" alt="Imagen <%#Eval("Nombre") %>" class="object-fit-contain rounded mw-100 p-3" Style="height: 300px; width: 500px; object-fit: contain"/>
                             <div class="card-body">
                                 <h6 class="card-title"><%#Eval("Nombre") %></h6>
                                 <p class="card-text"><%#Eval("Precio") %></p>
@@ -91,6 +93,7 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+
 
 
         </div>

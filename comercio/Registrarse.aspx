@@ -2,6 +2,28 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script>
+        function PrevisualizarImagen(event) {
+            const input = event.target;
+            const preview = document.getElementById('<%= imgNuevoPerfil.ClientID %>');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    preview.src = e.target.result;
+                };
+
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+
+                preview.src = "https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg";
+            }
+        }
+</script>
+
     <h2 class="m-5">Regístrate</h2>
 
     <div class="row d-flex justify-content-center">
@@ -35,17 +57,21 @@
             <div class="col-md-4">
                 <div class="mb-3">
                     <label class="form-label">Imagen de Perfil</label>
-                    <input type="file" id="txtImagen" runat="server" class="form-control" />
+                    <input type="file" id="txtImagenPerfil" runat="server" class="form-control" accept="image/*" onchange="PrevisualizarImagen(event)" />
                 </div>
-                <asp:Image ID="imgNuevoPerfil" ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
-                    runat="server" CssClass="img-fluid mb-3" />
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <asp:Image ID="imgNuevoPerfil" ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
+                            runat="server" CssClass="img-fluid mb-3" />
+                    </ContentTemplate>
+                </asp:UpdatePanel>
 
             </div>
 
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-md-4 m-5">
-                <asp:Button Text="Registrarse" CssClass="btn btn-primary me-3" ID="btnRegistrarCuenta" runat="server" />
+                <asp:Button Text="Registrarse" CssClass="btn btn-primary me-3" ID="btnRegistrarCuenta" runat="server" OnClick="btnRegistrarCuenta_Click" />
                 <a href="Default.aspx">Regresar</a>
             </div>
         </div>

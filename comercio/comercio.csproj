@@ -126,7 +126,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Favoritos.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Images\trash-fill.svg" />
     <Content Include="Ingresar.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="Modificar.aspx" />
@@ -295,7 +294,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\Perfil\" />
-    <Folder Include="Images\Productos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

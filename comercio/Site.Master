@@ -14,7 +14,7 @@
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    
+
 
 </head>
 <body>
@@ -43,7 +43,8 @@
                 <asp:Image ImageUrl="https://media.istockphoto.com/id/1184670036/es/vector/icono-de-la-l%C3%ADnea-del-carro-de-la-compra-compra-r%C3%A1pida-logotipo-vectorial.jpg?s=612x612&w=0&k=20&c=0ie1nYSFDBfnEjVykJxmKLGhXjOWUxPVTSOzfxyJQe0=" runat="server" class="d-inline-block align-text-top rounded me-2" Height="50px" href="~/" />
                 <a class="navbar-brand" href="Default.aspx">Todo Compras</a>
                 <div class="input-group justify-content-center">
-                    <asp:TextBox runat="server" class="form-control" type="search" placeholder="Buscar" aria-label="Search" />
+                    <asp:TextBox runat="server" class="form-control" type="search" placeholder="Buscar" aria-label="Search" ID="txtBuscar" />
+                    <asp:Button Text="🔍" runat="server" class="btn border" type="button" ID="btnBuscar" OnClick="btnBuscar_Click" />
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -53,20 +54,51 @@
                         <li class="nav-item">
                             <a class="nav-link" runat="server" href="Favoritos.aspx">Favoritos</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" runat="server" href="MiPerfil.aspx">Mi&nbsp;Perfil</a>
                         </li>
+
+                        <% if (negocio.Seguridad.sesionActiva(Session["usuario"]))
+                            {
+                                var usuario = (dominio.Usuario)Session["usuario"];
+                                if (usuario != null && usuario.Admin)
+                                {
+                        %>
+
                         <li class="nav-item">
                             <a class="nav-link" runat="server" href="Productos.aspx">Productos</a>
                         </li>
+                        <%
+
+                                }
+                            }
+
+
+                        %>
+
+
+
+
+
+                        <% if (!negocio.Seguridad.sesionActiva(Session["usuario"]))
+                            { %>
                         <li class="nav-item">
                             <a class="nav-link btn btn-primary" id="btnIngresar" runat="server" href="Ingresar.aspx">Ingresar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn btn-success" runat="server" href="Registrarse.aspx">Registrarse</a>
                         </li>
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                        <asp:Button Text="Salir" ID="btnSalir" CssClass="btn btn-outline-danger me-2" OnClick="btnSalir_Click" runat="server" />
+                        <%} %>
+
                         <li>
-                            <asp:Image ImageUrl="https://i.pinimg.com/236x/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg" class="me-2" runat="server" Width="50px" Style="border-radius: 50%;" />
+                            <asp:Image ImageUrl="https://i.pinimg.com/236x/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg" class="me-2" runat="server" Width="50px" Style="border-radius: 50%;" ID="imgAvatar" />
                         </li>
                     </ul>
 

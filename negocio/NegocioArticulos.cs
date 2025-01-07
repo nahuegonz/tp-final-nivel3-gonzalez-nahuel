@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using dominio;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace negocio
 {
@@ -32,6 +33,8 @@ namespace negocio
                     aux.IdCategoria = (int)datos.Lector["ArticuloIdCategoria"];
                     aux.IdMarca = (int)datos.Lector["ArticuloIdMarca"];
 
+
+
                     if(!(datos.Lector["ArticuloPrecio"] is DBNull))
                     {
                         decimal numerolimpio = (decimal)datos.Lector["ArticuloPrecio"];
@@ -44,20 +47,21 @@ namespace negocio
                     if (!(datos.Lector["ArticuloImagenUrl"] is DBNull))
                     {
                         string urlImagen = (string)datos.Lector["ArticuloImagenUrl"];
-                        if (Seguridad.EsImagenValida(urlImagen))
-                            aux.UrlImagen = urlImagen;
-                        else
-                            aux.UrlImagen = "https://img.freepik.com/vector-premium/no-hay-foto-disponible-icono-vector-simbolo-imagen-predeterminado-imagen-proximamente-sitio-web-o-aplicacion-movil_87543-10615.jpg";
+                        //if (Seguridad.EsImagenValida(urlImagen))
+                        aux.UrlImagen = urlImagen;
+                        //else
+                        //    //aux.UrlImagen = urlImagen;
+                        //    aux.UrlImagen = "https://img.freepik.com/vector-premium/no-hay-foto-disponible-icono-vector-simbolo-imagen-predeterminado-imagen-proximamente-sitio-web-o-aplicacion-movil_87543-10615.jpg";
                     }
                     else
-                        aux.UrlImagen = "https://img.freepik.com/vector-premium/no-hay-foto-disponible-icono-vector-simbolo-imagen-predeterminado-imagen-proximamente-sitio-web-o-aplicacion-movil_87543-10615.jpg";
-
+                        aux.UrlImagen = "";
 
 
                     aux.Categoria = new Categoria();
                     aux.Categoria.Descripcion = (string)datos.Lector["CategoriaDescripcion"];
                     aux.Marca = new Marca();
                     aux.Marca.Descripcion = (string)datos.Lector["MarcaDescripcion"];
+
 
                     lista.Add(aux);
                 }

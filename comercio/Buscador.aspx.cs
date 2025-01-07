@@ -21,20 +21,35 @@ namespace Comercio
         {
 
             NegocioArticulos negocio = new NegocioArticulos();
-            Articulo articulo = new Articulo();
             ListaArticulo = negocio.listar();
 
             NegocioCategoria negocio2 = new NegocioCategoria();
-            Categoria categoria = new Categoria();
             ListaCategoria = negocio2.listar();
 
             NegocioMarca negocio3 = new NegocioMarca();
-            Marca marca = new Marca();
             ListaMarca = negocio3.listar();
+
+            Session.Add("listaArticulos", negocio.listar());
+
+            foreach (var articulo in ListaArticulo)
+            {
+                articulo.UrlImagenValidada = Seguridad.EsImagenValida(articulo.UrlImagen)
+                    ? articulo.UrlImagen
+                    : "https://img.freepik.com/vector-premium/no-hay-foto-disponible-icono-vector-simbolo-imagen-predeterminado-imagen-proximamente-sitio-web-o-aplicacion-movil_87543-10615.jpg";
+            }
 
             if (!IsPostBack)
             {
-                repArticulos.DataSource = ListaArticulo;
+                if (Session["busqueda"] != null)
+                {
+                    string filtro = Session["busqueda"].ToString();
+                    List<Articulo> listaFiltrada = ListaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+                    repArticulos.DataSource = listaFiltrada;
+                }
+                else
+                    repArticulos.DataSource = ListaArticulo;
+
+
                 repCategoria.DataSource = ListaCategoria;
                 repMarca.DataSource = ListaMarca;
 

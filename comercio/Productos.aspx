@@ -25,6 +25,8 @@
             <%--<asp:CommandField HeaderText="Eliminar" ShowSelectButton="true" SelectText="🗑️" />--%>
         </Columns>
     </asp:GridView>
+
+
     <a href="Modificar.aspx" class="btn btn-primary">Agregar</a>
 
 
